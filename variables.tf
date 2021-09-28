@@ -6,7 +6,7 @@ variable "region" {
 variable "policy_name" {
   description = "The name of the policy. If omitted, Terraform will assign a random, unique name."
   type = string
-  default = ""
+  default = null
 }
 
 variable "iam_policy" {
@@ -48,4 +48,10 @@ variable "aws_policy_arn" {
   description = "The ARN of the policy you want to apply"
   type = string
   default = ""
+}
+
+variable "is_aws_policy_required" {
+  description = "Do you want aws managed policy ? "
+  type = bool
+  default = "false"
 }
