@@ -28,20 +28,20 @@ variable "policy_description" {
 
 variable "apply_to_users" {
   description = "The user(s) the policy should be applied to"
-  type = string
-  default = ""
+  type = list(string)
+  default = []
 }
 
 variable "apply_to_roles" {
   description = "The role(s) the policy should be applied to"
-  type = string
-  default = ""
+  type = list(string)
+  default = []
 }
 
 variable "apply_to_groups" {
   description = "The group(s) the policy should be applied to"
-  type = string
-  default = ""
+  type = list(string)
+  default = []
 }
 
 variable "aws_policy_arn" {
