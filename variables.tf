@@ -47,7 +47,6 @@ variable "apply_to_groups" {
 variable "aws_policy_arn" {
   description = "The ARN of the policy you want to apply"
   type = string
-  default = ""
 }
 
 variable "is_aws_policy_required" {

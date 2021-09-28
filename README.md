@@ -1,19 +1,16 @@
 > **Thanks for using Jaya world modules**
 
-> **Example to create new inline policies and AWS managed policies**
+> **Example to create new inline policies**
 
-module "jayaworld-iam-groups" {
+module "jayaworld-iam-policies" {
 
-  source  = "JayavardhanTummidi/jayaworld-iam-groups/aws"
+  source  = "JayavardhanTummidi/jayaworld-iam-policies/aws"
 
-  version = "0.3.0"
   # insert the required variables here
 
-  group_name = "jaya-world"
+  policy_name = "hello-jaya-world"
 
-  group_policy_name = "jw-world-policy"
-
-  group_policy = jsonencode({
+  iam_policy = jsonencode({
 
     Version = "2012-10-17"
 
@@ -39,7 +36,7 @@ module "jayaworld-iam-groups" {
   
   # OR 
 
-  group_policy = file("./policy.json")
+  iam_policy = file("./policy.json")
   
   # OR
 
@@ -72,8 +69,21 @@ module "jayaworld-iam-groups" {
 }
 
 EOT
-  # AWS managed policies ARN
 
-  group_policy_arn = "arn:aws:iam::aws:policy/AmazonRDSFullAccess"
+  
+ # Example to created AWS managed policies and attach it to the users, groups and roles
 
+ is_aws_policy_required = "true"
+
+ policy_name = "hello-jaya-world"
+
+ aws_policy_arn = "arn:aws:iam::800153021777:policy/hello-jaya-world"
+
+ apply_to_users = ["jayaworld", "jaya-be-happy"]
+
+ apply_to_groups = ["group-1", "group-2"]
+
+ apply_to_roles = ["role-1", "role-2"]
+
+ 
 }
